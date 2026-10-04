@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BillyFX</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080b12;
+  color: white;
+}
+
+header {
+  background: #111722;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #293142;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff4055;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 18px;
+}
+
+.card {
+  background: #121824;
+  border: 1px solid #293142;
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buy {
+  background: #19c37d;
+  color: white;
+}
+
+.sell {
+  background: #ef4444;
+  color: white;
+}
+
+.analyse {
+  background: #3b82f6;
+  color: white;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #394357;
+  background: #0b1019;
+  color: white;
+}
+
+.result {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #0b1019;
+  text-align: center;
+}
+
+.green {
+  color: #19c37d;
+}
+
+.red {
+  color: #ef4444;
+}
+
+.yellow {
+  color: #facc15;
+}
+
+.small {
+  color: #9ca3af;
+  font-size: 13px;
+  line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BillyFX</div>
+  <div class="small">Synthetic Indices Analysis Platform</div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>📊 Volatility 75</h2>
+    <div class="small">Analysis mode: 15 Minute</div>
+
+    <div class="price" id="price">
+      Waiting for market data
+    </div>
+
+    <div class="small">
+      Live Deriv connection will be added in the next stage.
+    </div>
+  </div>
+
+ 
