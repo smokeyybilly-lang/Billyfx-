@@ -88,7 +88,7 @@ document.getElementById("deriv-connect").onclick = async () => {
   status.textContent = "Connecting...";
   let ws;
   try {
-    ws = new WebSocket("wss://ws.derivws.com/websockets/v3?app_id=YOUR_APP_ID");
+    ws = new WebSocket("wss://ws.derivws.com/websockets/v3?app_id=34zW4CzXeewGNJaa6zLzq;
     ws.onopen = () => ws.send(JSON.stringify({
       authorize: token
     }));
