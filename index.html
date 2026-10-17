@@ -68,3 +68,47 @@
   </script>
 </body>
 </html>
+<div id="billyfx-deriv">
+  <h3>BillyFX — Deriv Demo Connection</h3>
+  <label for="deriv-token">Deriv API token</label>
+  <input id="deriv-token" type="password"
+         placeholder="Paste demo token here" autocomplete="off" />
+  <button id="deriv-connect">Connect Demo</button>
+  <p id="deriv-status">Not connected</p>
+</div>
+
+<script>
+document.getElementById("deriv-connect").onclick = async () => {
+  const token = document.getElementById("deriv-token").value.trim();
+  const status = document.getElementById("deriv-status");
+  if (!token) {
+    status.textContent = "Enter your demo token.";
+    return;
+  }
+  status.textContent = "Connecting...";
+  let ws;
+  try {
+    ws = new WebSocket("wss://ws.derivws.com/websockets/v3?app_id=YOUR_APP_ID");
+    ws.onopen = () => ws.send(JSON.stringify({
+      authorize: token
+    }));
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.error) {
+        status.textContent = "Connection failed: " + data.error.message;
+        ws.close();
+      } else if (data.msg_type === "authorize") {
+        status.textContent = "Demo connected successfully!";
+        ws.close();
+      }
+    };
+    ws.onerror = () => {
+      status.textContent = "Connection error. Check your App ID and internet.";
+    };
+  } catch (e) {
+    status.textContent = "Could not connect.";
+    if (ws) ws.close();
+  }
+};
+  </script>
+  
